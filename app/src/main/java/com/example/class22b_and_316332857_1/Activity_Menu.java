@@ -18,7 +18,8 @@ public class Activity_Menu extends AppCompatActivity {
 
     private LinearLayout Menu_layout_game_mode;
     private MaterialButton Menu_BTN_start_Button;
-
+    private MaterialButton Menu_BTN_start_Sensor;
+    private MaterialButton Menu_BTN_top_Button;
 
     private String playerName;
 
@@ -41,6 +42,8 @@ public class Activity_Menu extends AppCompatActivity {
 
         Menu_layout_game_mode=findViewById(R.id.Menu_layout_game_mode);
         Menu_BTN_start_Button=findViewById(R.id.Menu_BTN_start_Button);
+        Menu_BTN_start_Sensor = findViewById(R.id.Menu_BTN_start_Sensor);
+        Menu_BTN_top_Button = findViewById(R.id.Menu_BTN_top_Button);
     }
 
     private void initButtons() {
@@ -58,10 +61,28 @@ public class Activity_Menu extends AppCompatActivity {
         Menu_BTN_start_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                replaceActivity();
+                replaceActivity("buttons");
             }
         });
+
+        Menu_BTN_start_Sensor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceActivity("sensor");
+            }
+        });
+
+//        Menu_BTN_top_Button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                replaceActivity();
+//            }
+//        });
+
+
     }
+
+
 
     private boolean getName() {
          playerName = Menu_LBL_player_name.getEditText().getText().toString();
@@ -72,10 +93,11 @@ public class Activity_Menu extends AppCompatActivity {
     }
 
 
-    private void replaceActivity() {
+    private void replaceActivity(String game) {
         Intent intent = new Intent(this,Activity_Main.class);
         Bundle bundle = new Bundle();
         bundle.putString("playerName",playerName);
+        bundle.putString("game",game);
         intent.putExtra("Bundle",bundle);
         startActivity(intent);
     }

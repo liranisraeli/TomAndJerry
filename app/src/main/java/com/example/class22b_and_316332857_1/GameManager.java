@@ -46,6 +46,7 @@ public class GameManager {
         return lives;
     }
 
+
     public void reduceLives() {
         lives--;
     }
@@ -103,7 +104,7 @@ public class GameManager {
                 }
                 break;
             case "DOWN":
-                if(player.getLocationX()<4) {
+                if(player.getLocationX()<6) {
                     player.setLocationX(player.getLocationX()+1);
                 }
                 break;
@@ -113,7 +114,7 @@ public class GameManager {
                 }
                 break;
             case "RIGHT":
-                if(player.getLocationY()<2) {
+                if(player.getLocationY()<4) {
                     player.setLocationY(player.getLocationY()+1);
                 }
                 break;
@@ -129,6 +130,8 @@ public class GameManager {
             }
         }
     }
+
+
 
 
 

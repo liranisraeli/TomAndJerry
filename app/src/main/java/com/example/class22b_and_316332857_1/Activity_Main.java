@@ -2,17 +2,25 @@ package com.example.class22b_and_316332857_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textview.MaterialTextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,23 +36,37 @@ public class Activity_Main extends AppCompatActivity {
     private int location[][];
     private GameManager gameManager;
     private Bundle bundle;
+    private String game;
+    private TextView acc1;
+    private TextView acc2;
+
+    private Sensors sensors;
+    private SensorManager sensorManager;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         gameManager= new GameManager();
-
         if (getIntent().getBundleExtra("Bundle") != null){
             this.bundle = getIntent().getBundleExtra("Bundle");
             gameManager.getPlayer().setPlayerName(bundle.getString("playerName"));
         } else {
             this.bundle = new Bundle();
         }
-        findViews();
-        initPlayerButtons();
+        game = bundle.getString("game");
+        if(game.equals("buttons")){
+            setContentView(R.layout.activity_main);
+            findViews();
+            initPlayerButtons();
+        }else{
+            setContentView(R.layout.activity_sensors);
+            findViews();
+            sensors = new Sensors();
+            initSensors();
+        }
     }
 
 
@@ -59,18 +81,27 @@ public class Activity_Main extends AppCompatActivity {
                 };
 
         main_IMG_route = new ImageView[][]{
-                {findViewById(R.id.main_IMG_00),findViewById(R.id.main_IMG_01),findViewById(R.id.main_IMG_02)},
-                {findViewById(R.id.main_IMG_10),findViewById(R.id.main_IMG_11),findViewById(R.id.main_IMG_12)},
-                {findViewById(R.id.main_IMG_20),findViewById(R.id.main_IMG_21),findViewById(R.id.main_IMG_22)},
-                {findViewById(R.id.main_IMG_30),findViewById(R.id.main_IMG_31),findViewById(R.id.main_IMG_32)},
-                {findViewById(R.id.main_IMG_40),findViewById(R.id.main_IMG_41),findViewById(R.id.main_IMG_42)}
+                {findViewById(R.id.main_IMG_00),findViewById(R.id.main_IMG_01),findViewById(R.id.main_IMG_02),findViewById(R.id.main_IMG_03),findViewById(R.id.main_IMG_04)},
+                {findViewById(R.id.main_IMG_10),findViewById(R.id.main_IMG_11),findViewById(R.id.main_IMG_12),findViewById(R.id.main_IMG_13),findViewById(R.id.main_IMG_14)},
+                {findViewById(R.id.main_IMG_20),findViewById(R.id.main_IMG_21),findViewById(R.id.main_IMG_22),findViewById(R.id.main_IMG_23),findViewById(R.id.main_IMG_24)},
+                {findViewById(R.id.main_IMG_30),findViewById(R.id.main_IMG_31),findViewById(R.id.main_IMG_32),findViewById(R.id.main_IMG_33),findViewById(R.id.main_IMG_34)},
+                {findViewById(R.id.main_IMG_40),findViewById(R.id.main_IMG_41),findViewById(R.id.main_IMG_42),findViewById(R.id.main_IMG_43),findViewById(R.id.main_IMG_44)},
+                {findViewById(R.id.main_IMG_50),findViewById(R.id.main_IMG_51),findViewById(R.id.main_IMG_52),findViewById(R.id.main_IMG_53),findViewById(R.id.main_IMG_54)},
+                {findViewById(R.id.main_IMG_60),findViewById(R.id.main_IMG_61),findViewById(R.id.main_IMG_62),findViewById(R.id.main_IMG_63),findViewById(R.id.main_IMG_64)}
         };
 
 
-        main_BTN_up = findViewById(R.id.main_BTN_up);
-        main_BTN_left = findViewById(R.id.main_BTN_left);
-        main_BTN_right= findViewById(R.id.main_BTN_right);
-        main_BTN_down= findViewById(R.id.main_BTN_down);
+
+        if(game.equals("buttons")){
+            main_BTN_up = findViewById(R.id.main_BTN_up);
+            main_BTN_left = findViewById(R.id.main_BTN_left);
+            main_BTN_right= findViewById(R.id.main_BTN_right);
+            main_BTN_down= findViewById(R.id.main_BTN_down);
+        }else{
+            acc1 = findViewById(R.id.sensor_LBL_acc1);
+            acc2 = findViewById(R.id.sensor_LBL_acc2);
+        }
+
     }
 
     private void initPlayerButtons() {
@@ -174,6 +205,19 @@ public class Activity_Main extends AppCompatActivity {
         updateUI();
     }
 
+    //sensors
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(accSensorEventListener, sensors.getAccSensor(),sensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(accSensorEventListener);
+    }
+
+
 
     private void updateUI() {
         for (int i=0; i<main_IMG_route.length;i++){
@@ -220,6 +264,40 @@ public class Activity_Main extends AppCompatActivity {
         main_IMG_route[gameManager.getBot().getLocationX()][gameManager.getBot().getLocationY()].setImageResource(R.drawable.ic_tom);
         gameManager.setCrash(false);
     }
+
+
+    //sensors
+    public void initSensors(){
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensors.setSensorManager(sensorManager);
+        sensors.initSensor();
+    }
+
+    private SensorEventListener accSensorEventListener = new SensorEventListener() {
+
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            NumberFormat formatter = new DecimalFormat("#0.00");
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+
+            if (x < -5) {// move right
+                gameManager.getPlayer().setDirection("RIGHT");
+            } else if (x > 5) {// move left
+                gameManager.getPlayer().setDirection("LEFT");
+            } else if (y < -3) {// move up
+                gameManager.getPlayer().setDirection("UP");
+            } else if (y > 3) {// move down
+                gameManager.getPlayer().setDirection("DOWN");
+            }
+
+            acc1.setText(formatter.format(x) + "\n" + formatter.format(y));
+
+        }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+        }
+    };
 
 
 

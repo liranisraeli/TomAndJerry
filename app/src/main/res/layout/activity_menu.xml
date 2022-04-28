@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Activity_Menu">
+    tools:context=".Activity_Menu"
+    >
 
 
     <ImageView
@@ -113,7 +114,44 @@
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:layout_marginTop="10dp"
-            android:text="Start Game"
+            android:text="Start Button Game"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:backgroundTint="#797A7A"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="3dp"
+            android:onClick="nextActivity"
+            tools:ignore="OnClick"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Menu_BTN_start_Sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"
+            android:text="Start Sensor Game"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:backgroundTint="#797A7A"
+            app:cornerRadius="20dp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="3dp"
+            android:onClick="nextActivity"
+            tools:ignore="OnClick"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Menu_BTN_top_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10dp"
+            android:text="Top 10"
             android:textSize="20sp"
             android:textColor="@color/white"
             android:singleLine="true"
