@@ -42,8 +42,7 @@ public class Activity_Main extends AppCompatActivity {
 
     private Sensors sensors;
     private SensorManager sensorManager;
-
-
+    private int sensorGame =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +62,7 @@ public class Activity_Main extends AppCompatActivity {
             initPlayerButtons();
         }else{
             setContentView(R.layout.activity_sensors);
+            sensorGame=1;
             findViews();
             sensors = new Sensors();
             initSensors();
@@ -208,7 +208,9 @@ public class Activity_Main extends AppCompatActivity {
     //sensors
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(accSensorEventListener, sensors.getAccSensor(),sensorManager.SENSOR_DELAY_NORMAL);
+        if(sensorGame==1){
+            sensorManager.registerListener(accSensorEventListener, sensors.getAccSensor(),sensorManager.SENSOR_DELAY_NORMAL);
+        }
     }
 
     @Override
