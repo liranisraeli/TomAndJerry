@@ -95,53 +95,53 @@
         android:orientation="vertical"
         android:visibility="invisible">
 
-<!--        <TextView-->
-<!--            android:id="@+id/panel_LBL_choose_game"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="5dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text=" Choose Your Game Mode : "-->
-<!--            android:textColor="@color/white"-->
-<!--            android:lines="@color/black"-->
-<!--            android:textSize="30sp"-->
-<!--            android:visibility="visible"/>-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/panel_LBL_choose_game"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:padding="5dp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:text=" Choose Your Game Mode : "-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:lines="@color/black"-->
+        <!--            android:textSize="30sp"-->
+        <!--            android:visibility="visible"/>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Menu_BTN_start_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleType="fitCenter"
             android:layout_marginTop="10dp"
-            android:text="Start Button Game"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:singleLine="true"
             android:backgroundTint="#797A7A"
+            android:onClick="nextActivity"
+            android:scaleType="fitCenter"
+            android:singleLine="true"
+            android:text="Start Button Game"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="20dp"
             app:strokeColor="@color/white"
             app:strokeWidth="3dp"
-            android:onClick="nextActivity"
-            tools:ignore="OnClick"/>
+            tools:ignore="OnClick" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Menu_BTN_start_Sensor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleType="fitCenter"
             android:layout_marginTop="10dp"
-            android:text="Start Sensor Game"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:singleLine="true"
             android:backgroundTint="#797A7A"
+            android:onClick="nextActivity"
+            android:scaleType="fitCenter"
+            android:singleLine="true"
+            android:text="Start Sensor Game"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="20dp"
             app:strokeColor="@color/white"
             app:strokeWidth="3dp"
-            android:onClick="nextActivity"
-            tools:ignore="OnClick"/>
+            tools:ignore="OnClick" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -149,18 +149,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleType="fitCenter"
             android:layout_marginTop="10dp"
-            android:text="Top 10"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:singleLine="true"
             android:backgroundTint="#797A7A"
+            android:onClick="nextActivity"
+            android:scaleType="fitCenter"
+            android:singleLine="true"
+            android:text="Top 10"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             app:cornerRadius="20dp"
             app:strokeColor="@color/white"
             app:strokeWidth="3dp"
-            android:onClick="nextActivity"
-            tools:ignore="OnClick"/>
+            tools:ignore="OnClick" />
 
 
     </LinearLayout>

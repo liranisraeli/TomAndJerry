@@ -75,7 +75,9 @@ public class Activity_Menu extends AppCompatActivity {
 //        Menu_BTN_top_Button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                replaceActivity();
+//                Intent intent = new Intent(getApplicationContext(), Activity_Top_Ten.class);
+//                startActivity(intent);
+//
 //            }
 //        });
 

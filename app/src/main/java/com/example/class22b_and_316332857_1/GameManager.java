@@ -1,13 +1,17 @@
 package com.example.class22b_and_316332857_1;
 
+import android.widget.Toast;
+
 public class GameManager {
     private final int MAX_LIVES = 3;
     private int lives = MAX_LIVES;
 
     private Player player;
     private Player bot;
+    private Coin coin;
 
-    private String DIRECTION[]={
+
+    private String DIRECTION[] = {
             "UP",
             "DOWN",
             "LEFT",
@@ -15,11 +19,12 @@ public class GameManager {
     };
 
 
-    private Boolean isCrash=false;
+    private Boolean isCrash = false;
 
     public GameManager() {
         player = new Player();
         bot = new Player();
+        coin = new Coin();
         player.initializationPlayer();
         bot.initializationBot();
     }
@@ -51,44 +56,48 @@ public class GameManager {
         lives--;
     }
 
+    public Coin getCoin() {
+        return coin;
+    }
+
+
     public void bootLocations() {
         player.initializationPlayer();
         bot.initializationBot();
     }
 
-    public void runLogic() {
-        randomBotDirectionMove();
-        playerMove();
-        checkCrash();
-    }
+//    public void runLogic() {
+//        randomBotDirectionMove();
+//        playerMove();
+//        checkCrash();
+//    }
 
 
     public void randomBotDirectionMove() {
 
-        bot.setDirection(DIRECTION[(int)(Math.random() * 4)]);
+        bot.setDirection(DIRECTION[(int) (Math.random() * 4)]);
         switch (bot.getDirection()) {
             case "UP":
-                if(bot.getLocationX()>0) {
-                    bot.setLocationX(bot.getLocationX()-1);
+                if (bot.getLocationX() > 0) {
+                    bot.setLocationX(bot.getLocationX() - 1);
                 }
                 break;
             case "DOWN":
-                if(bot.getLocationX()<4) {
-                    bot.setLocationX(bot.getLocationX()+1);
-                }
-                else{
+                if (bot.getLocationX() < 6) {
+                    bot.setLocationX(bot.getLocationX() + 1);
+                } else {
                     bot.setLocationX(bot.getStartBotLocationX());
-                    bot.setLocationY(bot.getStartPlayerLocationY());
+                    bot.setLocationY(bot.getStartBotLocationY());
                 }
                 break;
             case "LEFT":
-                if(bot.getLocationY()>0) {
-                    bot.setLocationY(bot.getLocationY()-1);
+                if (bot.getLocationY() > 0) {
+                    bot.setLocationY(bot.getLocationY() - 1);
                 }
                 break;
             case "RIGHT":
-                if(bot.getLocationY()<2) {
-                    bot.setLocationY(bot.getLocationY()+1);
+                if (bot.getLocationY() < 4) {
+                    bot.setLocationY(bot.getLocationY() + 1);
                 }
                 break;
         }
@@ -99,23 +108,23 @@ public class GameManager {
             case "":
                 break;
             case "UP":
-                if(player.getLocationX()>0) {
-                    player.setLocationX(player.getLocationX()-1);
+                if (player.getLocationX() > 0) {
+                    player.setLocationX(player.getLocationX() - 1);
                 }
                 break;
             case "DOWN":
-                if(player.getLocationX()<6) {
-                    player.setLocationX(player.getLocationX()+1);
+                if (player.getLocationX() < 6) {
+                    player.setLocationX(player.getLocationX() + 1);
                 }
                 break;
             case "LEFT":
-                if(player.getLocationY()>0) {
-                    player.setLocationY(player.getLocationY()-1);
+                if (player.getLocationY() > 0) {
+                    player.setLocationY(player.getLocationY() - 1);
                 }
                 break;
             case "RIGHT":
-                if(player.getLocationY()<4) {
-                    player.setLocationY(player.getLocationY()+1);
+                if (player.getLocationY() < 4) {
+                    player.setLocationY(player.getLocationY() + 1);
                 }
                 break;
         }
@@ -123,9 +132,9 @@ public class GameManager {
     }
 
     public void checkCrash() {
-        if (player.getLocationX()==bot.getLocationX() && player.getLocationY()==bot.getLocationY()) {
-            isCrash=true;
-            if(lives>0){
+        if (player.getLocationX() == bot.getLocationX() && player.getLocationY() == bot.getLocationY()) {
+            isCrash = true;
+            if (lives > 0) {
                 reduceLives();
             }
         }
@@ -134,10 +143,26 @@ public class GameManager {
 
 
 
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

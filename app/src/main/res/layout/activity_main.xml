@@ -94,7 +94,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/ic_tom"
+                android:src="@drawable/ic_empty"
                 />
             <!--  [0,2]-->
             <ImageView
@@ -102,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/ic_empty"
+                android:src="@drawable/ic_tom"
                />
             <!-- [0,3]-->
             <ImageView
@@ -309,16 +309,13 @@
                  />
 
             <!-- [4,1]-->
-
-
-            <!-- [4,2]-->
             <ImageView
                 android:id="@+id/main_IMG_41"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/ic_jerry" />
-
+                android:src="@drawable/ic_empty" />
+            <!-- [4,2]-->
             <ImageView
                 android:id="@+id/main_IMG_42"
                 android:layout_width="0dp"
@@ -435,7 +432,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:src="@drawable/ic_empty"
+                android:src="@drawable/ic_jerry"
                 />
             <!-- [6,3]-->
             <ImageView

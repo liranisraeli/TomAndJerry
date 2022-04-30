@@ -5,9 +5,9 @@ public class Player {
     private String PlayerName;
     private int score = 0;
     private final int startBotLocationX=0;
-    private final int startBotLocationY=1;
-    private final int startPlayerLocationX=4;
-    private final int startPlayerLocationY=1;
+    private final int startBotLocationY=2;
+    private final int startPlayerLocationX=6;
+    private final int startPlayerLocationY=2;
 
 
     private int locationX;
@@ -17,7 +17,6 @@ public class Player {
 
     public Player() {
     }
-
 
     public void initializationPlayer() {
         locationX =startPlayerLocationX;
@@ -34,18 +33,16 @@ public class Player {
         return score;
     }
 
-    public Player setScore(int score) {
+    public void setScore(int score) {
         this.score = score;
-        return this;
     }
 
     public String getPlayerName() {
         return PlayerName;
     }
 
-    public Player setPlayerName(String playerName) {
+    public void setPlayerName(String playerName) {
         PlayerName = playerName;
-        return this;
     }
 
 
@@ -75,7 +72,6 @@ public class Player {
         this.locationY = locationY;
         return this;
     }
-
 
 
     public int getStartBotLocationX() {
