@@ -2,24 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.class22b_and_316332857_1">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Class22BAnd3163328571"
-        >
+        android:theme="@style/Theme.Class22BAnd3163328571">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDjwz_I2YAvaJ33yWG15ZUd47Y1BJWstz8" />
+
         <activity
-            android:name=".Activity_GameOver"
+            android:name=".activities.Activity_topTen"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Activity_GameOver"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity_Menu"
+            android:name=".activities.Activity_Menu"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity_Splash"
+            android:name=".activities.Activity_Splash"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -29,9 +40,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity_Main"
+            android:name=".activities.Activity_Main"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

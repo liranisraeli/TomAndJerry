@@ -1,17 +1,15 @@
-package com.example.class22b_and_316332857_1;
+package com.example.class22b_and_316332857_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.class22b_and_316332857_1.R;
 import com.google.android.material.button.MaterialButton;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class Activity_GameOver extends AppCompatActivity {
@@ -49,10 +47,12 @@ public class Activity_GameOver extends AppCompatActivity {
 
 
     private void replaceActivity() {
-        Intent intent = new Intent(this,Activity_Main.class);
+        Intent intent = new Intent(this, Activity_Main.class);
         intent.putExtra("Bundle",bundle);
         startActivity(intent);
-    }
+
+        }
+
 
 
     private void initBtnClick() {

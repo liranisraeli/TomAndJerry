@@ -1,4 +1,4 @@
-package com.example.class22b_and_316332857_1;
+package com.example.class22b_and_316332857_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.class22b_and_316332857_1.GameManager;
+import com.example.class22b_and_316332857_1.R;
+import com.example.class22b_and_316332857_1.Sensors;
+import com.example.class22b_and_316332857_1.SoundManager;
+import com.example.class22b_and_316332857_1.StepDetector;
+import com.example.class22b_and_316332857_1.activities.Activity_GameOver;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.text.DecimalFormat;
@@ -332,7 +338,7 @@ public class Activity_Main extends AppCompatActivity {
         if ((gameManager.getCoin().getCoin_x() == gameManager.getPlayer().getLocationX()) && (gameManager.getCoin().getCoin_y() == gameManager.getPlayer().getLocationY())) {
             counter += 10;
             main_LBL_time.setText("" + counter);
-            Toast.makeText(this, "+10", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "+10 coins", Toast.LENGTH_SHORT).show();
             stepDetector.setStepCount(0);
         }
         if ((gameManager.getCoin().getCoin_x() == gameManager.getBot().getLocationX()) && (gameManager.getCoin().getCoin_y() == gameManager.getBot().getLocationY())) {
@@ -340,7 +346,7 @@ public class Activity_Main extends AppCompatActivity {
                 counter = 0;
             else
                 counter -= 10;
-            Toast.makeText(this, "Oh No...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Oops!", Toast.LENGTH_SHORT).show();
             stepDetector.setStepCount(0);
         }
     }
@@ -351,9 +357,11 @@ public class Activity_Main extends AppCompatActivity {
         if ((gameManager.getCoin().getCoin_x() == gameManager.getPlayer().getLocationX())
                 && (gameManager.getCoin().getCoin_y() == gameManager.getPlayer().getLocationY())) {
             main_IMG_route[gameManager.getPlayer().getLocationX()][gameManager.getPlayer().getLocationY()].setImageResource(R.drawable.ic_jerry);
-           isGotCoin = true;
+            soundManager.setMpAndPlay((ContextWrapper)getApplicationContext(),R.raw.bite_sound);
+            isGotCoin = true;
         } else if ((gameManager.getCoin().getCoin_x() == gameManager.getBot().getLocationX()) &&
                 (gameManager.getCoin().getCoin_y() == gameManager.getBot().getLocationY())) {
+            soundManager.setMpAndPlay((ContextWrapper)getApplicationContext(),R.raw.bite_sound);
             main_IMG_route[gameManager.getBot().getLocationX()][gameManager.getBot().getLocationY()].setImageResource(R.drawable.ic_tom);
             isGotCoin = true;
         }

@@ -1,4 +1,4 @@
-package com.example.class22b_and_316332857_1;
+package com.example.class22b_and_316332857_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
+
+import com.example.class22b_and_316332857_1.MyScreenUtils;
+import com.example.class22b_and_316332857_1.R;
 
 public class Activity_Splash extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.class22b_and_316332857_1;
+package com.example.class22b_and_316332857_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.class22b_and_316332857_1.MyScreenUtils;
+import com.example.class22b_and_316332857_1.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -72,15 +74,14 @@ public class Activity_Menu extends AppCompatActivity {
             }
         });
 
-//        Menu_BTN_top_Button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), Activity_Top_Ten.class);
-//                startActivity(intent);
-//
-//            }
-//        });
+        Menu_BTN_top_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Activity_topTen.class);
+                startActivity(intent);
 
+            }
+        });
 
     }
 
@@ -96,7 +97,7 @@ public class Activity_Menu extends AppCompatActivity {
 
 
     private void replaceActivity(String game) {
-        Intent intent = new Intent(this,Activity_Main.class);
+        Intent intent = new Intent(this, Activity_Main.class);
         Bundle bundle = new Bundle();
         bundle.putString("playerName",playerName);
         bundle.putString("game",game);
