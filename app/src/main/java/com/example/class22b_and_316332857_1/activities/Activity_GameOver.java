@@ -42,7 +42,6 @@ public class Activity_GameOver extends AppCompatActivity {
     private void presentScoreName() {
         gameOver_LBL_score_player.setText(String.valueOf(score));
         gameOver_LBL_title_score_player.setText(playerName.toUpperCase(Locale.ROOT)+" YOUR SCORE IS ");
-
     }
 
 
@@ -50,9 +49,7 @@ public class Activity_GameOver extends AppCompatActivity {
         Intent intent = new Intent(this, Activity_Main.class);
         intent.putExtra("Bundle",bundle);
         startActivity(intent);
-
         }
-
 
 
     private void initBtnClick() {
@@ -89,10 +86,8 @@ public class Activity_GameOver extends AppCompatActivity {
         super.onStop();
     }
 
-
     protected void onStart() {
         super.onStart();
     }
-
 
 }

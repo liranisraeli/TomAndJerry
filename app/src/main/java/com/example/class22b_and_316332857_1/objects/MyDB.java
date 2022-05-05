@@ -1,8 +1,7 @@
-package com.example.class22b_and_316332857_1;
-
-import com.example.class22b_and_316332857_1.objects.Record;
+package com.example.class22b_and_316332857_1.objects;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MyDB {
     private ArrayList<Record> records;
@@ -11,7 +10,6 @@ public class MyDB {
     public static MyDB getMyDB() {
         return myDB;
     }
-
 
     public MyDB() {
         this.records =  new ArrayList<>();
@@ -41,7 +39,7 @@ public class MyDB {
         return this;
     }
 
-//    public void  sortByScore () {
-//        Collections.sort(records);
-//    }
+    public void sortByScore () {
+        Collections.sort(records);
+    }
 }

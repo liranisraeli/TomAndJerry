@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.class22b_and_316332857_1.CallBack_List;
 import com.example.class22b_and_316332857_1.MSPV3;
-import com.example.class22b_and_316332857_1.MyDB;
+import com.example.class22b_and_316332857_1.objects.MyDB;
 import com.example.class22b_and_316332857_1.R;
 import com.example.class22b_and_316332857_1.objects.Record;
 import com.google.android.material.button.MaterialButton;
@@ -45,7 +44,7 @@ public class Fragment_List extends Fragment {
         private void initViews() {
             String js = MSPV3.getMe().getString("MY_DB", "");
             MyDB md = new Gson().fromJson(js, MyDB.class);
-            //md.sortByScore();
+            md.sortByScore();
             for (int i = 0; i < md.getRecords().size(); i++) {
                 Record winner = md.getSpecificRecord(i);
                 allWinners[i].setVisibility(View.VISIBLE);

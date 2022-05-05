@@ -24,12 +24,11 @@ import android.widget.Toast;
 import com.example.class22b_and_316332857_1.GameManager;
 import com.example.class22b_and_316332857_1.LocationManager;
 import com.example.class22b_and_316332857_1.MSPV3;
-import com.example.class22b_and_316332857_1.MyDB;
+import com.example.class22b_and_316332857_1.objects.MyDB;
 import com.example.class22b_and_316332857_1.R;
 import com.example.class22b_and_316332857_1.Sensors;
 import com.example.class22b_and_316332857_1.SoundManager;
-import com.example.class22b_and_316332857_1.StepDetector;
-import com.example.class22b_and_316332857_1.activities.Activity_GameOver;
+import com.example.class22b_and_316332857_1.objects.StepDetector;
 import com.example.class22b_and_316332857_1.objects.Record;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
@@ -130,10 +129,11 @@ public class Activity_Main extends AppCompatActivity {
             main_BTN_left = findViewById(R.id.main_BTN_left);
             main_BTN_right = findViewById(R.id.main_BTN_right);
             main_BTN_down = findViewById(R.id.main_BTN_down);
-        } else {
-            acc1 = findViewById(R.id.sensor_LBL_acc1);
-            acc2 = findViewById(R.id.sensor_LBL_acc2);
         }
+//        } else {
+//            acc1 = findViewById(R.id.sensor_LBL_acc1);
+//            acc2 = findViewById(R.id.sensor_LBL_acc2);
+//        }
 
     }
 
@@ -241,7 +241,6 @@ public class Activity_Main extends AppCompatActivity {
     public void runLogic() {
         CheckCrashWithCoin();
         updateScore();
-
         gameManager.randomBotDirectionMove();
         gameManager.playerMove();
         gameManager.checkCrash();
@@ -293,7 +292,6 @@ public class Activity_Main extends AppCompatActivity {
                 updateUIAfterCrash();
             } else {
                 Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
-                // TODO: 05/05/2022 check
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -319,8 +317,6 @@ public class Activity_Main extends AppCompatActivity {
         }
 
     }
-
-
 
     private void replaceActivity() {
         Intent intent = new Intent(this, Activity_GameOver.class);
@@ -364,7 +360,7 @@ public class Activity_Main extends AppCompatActivity {
                 gameManager.getPlayer().setDirection("DOWN");
             }
 
-            acc1.setText(formatter.format(x) + "\n" + formatter.format(y));
+//            acc1.setText(formatter.format(x) + "\n" + formatter.format(y));
 
         }
 
