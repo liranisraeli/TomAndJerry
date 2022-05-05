@@ -1,6 +1,7 @@
 package com.example.class22b_and_316332857_1;
 
-import android.widget.Toast;
+import com.example.class22b_and_316332857_1.objects.Coin;
+import com.example.class22b_and_316332857_1.objects.Player;
 
 public class GameManager {
     private final int MAX_LIVES = 3;
@@ -65,12 +66,6 @@ public class GameManager {
         player.initializationPlayer();
         bot.initializationBot();
     }
-
-//    public void runLogic() {
-//        randomBotDirectionMove();
-//        playerMove();
-//        checkCrash();
-//    }
 
 
     public void randomBotDirectionMove() {

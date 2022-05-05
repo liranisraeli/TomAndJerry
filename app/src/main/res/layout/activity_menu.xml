@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/Menu_IMG_logo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="5dp"

@@ -105,6 +105,4 @@ public class Activity_Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
 }

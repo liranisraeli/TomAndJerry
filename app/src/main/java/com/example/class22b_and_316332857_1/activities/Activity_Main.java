@@ -1,15 +1,20 @@
 package com.example.class22b_and_316332857_1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,12 +22,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.class22b_and_316332857_1.GameManager;
+import com.example.class22b_and_316332857_1.LocationManager;
+import com.example.class22b_and_316332857_1.MSPV3;
+import com.example.class22b_and_316332857_1.MyDB;
 import com.example.class22b_and_316332857_1.R;
 import com.example.class22b_and_316332857_1.Sensors;
 import com.example.class22b_and_316332857_1.SoundManager;
 import com.example.class22b_and_316332857_1.StepDetector;
 import com.example.class22b_and_316332857_1.activities.Activity_GameOver;
+import com.example.class22b_and_316332857_1.objects.Record;
 import com.google.android.material.textview.MaterialTextView;
+import com.google.gson.Gson;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -55,6 +65,9 @@ public class Activity_Main extends AppCompatActivity {
 
     private boolean isGotCoin = false;
 
+    private final MyDB myDB = MyDB.initMyDB();
+    LocationManager locationManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +76,8 @@ public class Activity_Main extends AppCompatActivity {
         gameManager = new GameManager();
         stepDetector = new StepDetector();
         soundManager = new SoundManager();
+        locationManager = new LocationManager(this);
+
         stepDetector.start();
         if (getIntent().getBundleExtra("Bundle") != null) {
             this.bundle = getIntent().getBundleExtra("Bundle");
@@ -81,6 +96,14 @@ public class Activity_Main extends AppCompatActivity {
             findViews();
             sensors = new Sensors();
             initSensors();
+        }
+        // permission of Location
+        try {
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -235,7 +258,8 @@ public class Activity_Main extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        sensorManager.unregisterListener(accSensorEventListener);
+        if(sensorGame==1)
+            sensorManager.unregisterListener(accSensorEventListener);
     }
 
 
@@ -248,7 +272,6 @@ public class Activity_Main extends AppCompatActivity {
 
         main_IMG_route[gameManager.getPlayer().getLocationX()][gameManager.getPlayer().getLocationY()].setImageResource(R.drawable.ic_jerry);
         main_IMG_route[gameManager.getBot().getLocationX()][gameManager.getBot().getLocationY()].setImageResource(R.drawable.ic_tom);
-        //todo check
         if (stepDetector.getStepCount() % 10 == 0) {
             isGotCoin = false;
             // Random Coin
@@ -270,6 +293,24 @@ public class Activity_Main extends AppCompatActivity {
                 updateUIAfterCrash();
             } else {
                 Toast.makeText(this, "Game Over", Toast.LENGTH_LONG).show();
+                // TODO: 05/05/2022 check
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Record rec = new Record()
+                                .setName(gameManager.getPlayer().getPlayerName())
+                                .setScore(counter)
+                                .setLon(locationManager.getLon())
+                                .setLat(locationManager.getLat());
+
+                        myDB.addRecord(rec);
+                        String json = new Gson().toJson(myDB);
+                        MSPV3.getMe().putString("MY_DB", json);
+                        replaceActivity();
+                        finish();
+                    }
+                }, 500);
                 gameManager.getPlayer().setScore(counter);
                 stopTimer();
                 replaceActivity();
