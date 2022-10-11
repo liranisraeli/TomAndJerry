@@ -9,20 +9,19 @@
 - When the Tom hits the cheese, the points decreases by 10.
 
 ### Characters 
-<table>
-  <tr>
-        <td> <a href="url"><img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_jerry.png" align="left" height="110" width="110" ></a> </td>
-        <td> <a href="url"><img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_tom.png" align="left" height="110" width="110" > </a> </td>
-       
- </tr>
- </table>
+
+>  | __Jerry__ | __Tom__ |
+>  |:---:|:---:|
+>  | <img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_jerry.png" width="100" height="100" border="10"/> | <img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_tom.png" width="100" height="100" border="10"/>  
+>
+
 
 ### Points (for Jerry) / Obstacle (for Tom)
-<table>
-  <tr>
-    <td><a href="url"><img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_cheese.png" align="left" height="90" width="90" ></a></td>
-  </tr>
- </table>
+>  | __Cheese__ |
+>  |:---:|
+>  | <img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_cheese.png" width="100" height="100" border="10"/> | <img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_tom.png" width="100" height="100" border="10"/>  
+>
+
 
 ### Lives 
 <table>
