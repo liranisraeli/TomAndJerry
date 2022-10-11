@@ -1,6 +1,6 @@
 <h1 align="center"> Tom & Jerry </h1>
 
-# :pencil2: Description 
+# Description 
 - A Android-based game featuring familiar characters - Tom & Jerry.
 - The aim of the game is to escape from Tom and score as many points as possible.
 - The game begins when the player has 3 lives. 
@@ -31,7 +31,6 @@
   </tr>
  </table>
  
- 
  # Screens: 
 
 |Splash Screen|
@@ -61,16 +60,16 @@
 :radio_button:Sensors Game (version 2.0)<br/>
 
 ## :video_game: Buttons Game 
-|The player has to move the selected character using two buttons (right or left) in order to avoid obstacles.|
+|The player (Jerry) has to move  using four buttons in order to avoid Tom.|
 |:-:|
-|<img src="https://media.giphy.com/media/d19BICI1YLGenUCbpO/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/q9XtRjzUxrjqGwkE82/giphy.gif" alt="animated"/>|
 
 
 
 ## :satellite: Sensors Game
-|The player movement can be controlled via the X-exis Sensors of your device in order to avoid obstacles.|
+|The player (Jerry) movement can be controlled via the X-exis Sensors of your device in order to avoid Tom.|
 |:-:|
-|<img src="https://media.giphy.com/media/JeC6mkBADcr4Vi4uiL/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/hZmq7JyT9ibHWraBxR/giphy.gif" alt="animated"/>|
 
 
 
