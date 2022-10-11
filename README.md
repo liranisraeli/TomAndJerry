@@ -27,7 +27,7 @@
 ### Lives 
 <table>
   <tr>
-  <td><a href="url"><img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_heart.xml" align="left" height="90" width="90" ></a></td>
+  <td><a href="url"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Heart_corazón.svg"  align="left" height="90" width="90" ></a></td>
   </tr>
  </table>
  
