@@ -20,7 +20,7 @@
 ### Points (for Jerry) / Obstacle (for Tom)
 <table>
   <tr>
-    <td><a href="url"><img src="https://www.ecosystemmarketplace.com/wp-content/uploads/2019/11/Swiss-Cheese.jpg" align="left" height="90" width="90" ></a></td>
+    <td><a href="url"><img src="https://github.com/liranisraeli/TomAndJerry/blob/master/app/src/main/res/drawable/ic_cheese.png" align="left" height="90" width="90" ></a></td>
   </tr>
  </table>
 
