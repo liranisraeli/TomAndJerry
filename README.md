@@ -35,22 +35,22 @@
 
 |Splash Screen|
 |:-:|
-|<img src="https://media.giphy.com/media/ZriiXhej7FjqXQzPqZ/giphy.gif" alt="animated" align="center"/>|
+|<img src="https://media.giphy.com/media/ZriiXhej7FjqXQzPqZ/giphy.gif" alt="animated" align="left" height="350" width="220" />|
 |Splash Screen - Using Anmation displayed during loading the game app.|
  
 |Settings Screen|
 |:-:|
-|<img src="https://media.giphy.com/media/Z7IAOhndTndcV8sdql/giphy.gif" alt="animated" align="center"/>|
+|<img src="https://media.giphy.com/media/Z7IAOhndTndcV8sdql/giphy.gif" alt="animated" align="left" height="350" width="220" />|
 |Settings Screen - The player has to enter his name, This way he will be able to keep track of his points on top 10 screen.
 
 |Menu Screen|
 |:-:|
-|<img src="https://media.giphy.com/media/ypItVDJOfiCM2i0RSg/giphy.gif" alt="animated" align="center"/>|
+|<img src="https://media.giphy.com/media/ypItVDJOfiCM2i0RSg/giphy.gif" alt="animated" align="left" height="350" width="220" />|
 |Menu Screen - The player can choose to play button or sensor game.|
 
 |Top 10 Screen|
 |:-:|
-|<img src="https://media.giphy.com/media/cHjsmxpgfXBMWODZfw/giphy.gif" alt="animated" align="center"/>|
+|<img src="https://media.giphy.com/media/cHjsmxpgfXBMWODZfw/giphy.gif" align="left" height="350" width="220" />|
 |High Scores Screen - On that screen you'll see 2 fragments. On the top one, you can see the Top 10 games played, the score and whom thay played by. On the second one, you'll see Google Map fragment. Whenever you click one of the players on the top 10 list, the map will zoom to the place where the player played the game.|
 
 
@@ -62,14 +62,14 @@
 ## :video_game: Buttons Game 
 |The player (Jerry) has to move  using four buttons in order to avoid Tom.|
 |:-:|
-|<img src="https://media.giphy.com/media/q9XtRjzUxrjqGwkE82/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/q9XtRjzUxrjqGwkE82/giphy.gif" alt="animated" align="left" height="350" width="220"/>|
 
 
 
 ## :satellite: Sensors Game
 |The player (Jerry) movement can be controlled via the X-exis Sensors of your device in order to avoid Tom.|
 |:-:|
-|<img src="https://media.giphy.com/media/hZmq7JyT9ibHWraBxR/giphy.gif" alt="animated"/>|
+|<img src="https://media.giphy.com/media/hZmq7JyT9ibHWraBxR/giphy.gif" alt="animated" align="left" height="350" width="220"/>|
 
 
 
