@@ -47,6 +47,12 @@
 |<img src="https://media.giphy.com/media/ypItVDJOfiCM2i0RSg/giphy.gif" alt="animated" align="left" height="350" width="220" />|
 |Menu Screen - The player can choose to play button or sensor game.|
 
+|Game Over Screen|
+|:-:|
+|<img src="https://media.giphy.com/media/iJiNKzWiTf5Ccb5Hjf/giphy.gif" alt="animated" align="left" height="350" width="220" />|
+|Game Over Screen - The player can choose to play again or back to menu page|
+
+
 |Top 10 Screen|
 |:-:|
 |<img src="https://media.giphy.com/media/cHjsmxpgfXBMWODZfw/giphy.gif" align="left" height="350" width="220" />|
